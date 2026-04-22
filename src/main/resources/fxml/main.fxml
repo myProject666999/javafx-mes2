@@ -52,6 +52,10 @@
                 <Button fx:id="workshopMenuBtn" styleClass="sidebar-button" text="🏭  车间设置" onAction="#showWorkshop"/>
                 <Button fx:id="workstationMenuBtn" styleClass="sidebar-button" text="⚙️  工作站管理" onAction="#showWorkstation"/>
 
+                <Label fx:id="processMenuLabel" text="工艺管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                <Button fx:id="processMenuBtn" styleClass="sidebar-button" text="🔧  工序设置" onAction="#showProcess"/>
+                <Button fx:id="processRouteMenuBtn" styleClass="sidebar-button" text="📋  工序流程" onAction="#showProcessRoute"/>
+
                 <Label fx:id="personalMenuLabel" text="个人设置" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
                 <Button styleClass="sidebar-button" text="🔐  修改密码" onAction="#showChangePassword"/>
                 

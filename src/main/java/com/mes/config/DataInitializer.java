@@ -74,6 +74,16 @@ public class DataInitializer implements CommandLineRunner {
         Permission workstationEdit = createPermissionIfNotExists("workstation:edit", "编辑工作站", Permission.PermissionType.BUTTON);
         Permission workstationDelete = createPermissionIfNotExists("workstation:delete", "删除工作站", Permission.PermissionType.BUTTON);
 
+        Permission processManage = createPermissionIfNotExists("process:manage", "工序设置", Permission.PermissionType.MENU);
+        Permission processAdd = createPermissionIfNotExists("process:add", "添加工序", Permission.PermissionType.BUTTON);
+        Permission processEdit = createPermissionIfNotExists("process:edit", "编辑工序", Permission.PermissionType.BUTTON);
+        Permission processDelete = createPermissionIfNotExists("process:delete", "删除工序", Permission.PermissionType.BUTTON);
+
+        Permission processRouteManage = createPermissionIfNotExists("process_route:manage", "工序流程", Permission.PermissionType.MENU);
+        Permission processRouteAdd = createPermissionIfNotExists("process_route:add", "添加工艺流程", Permission.PermissionType.BUTTON);
+        Permission processRouteEdit = createPermissionIfNotExists("process_route:edit", "编辑工艺流程", Permission.PermissionType.BUTTON);
+        Permission processRouteDelete = createPermissionIfNotExists("process_route:delete", "删除工艺流程", Permission.PermissionType.BUTTON);
+
         Role adminRole = createRoleIfNotExists("ADMIN", "系统管理员",
                 userManage, userAdd, userEdit, userDelete, userResetPassword,
                 roleManage, roleAdd, roleEdit, roleDelete,
@@ -83,7 +93,9 @@ public class DataInitializer implements CommandLineRunner {
                 productCategoryManage, productCategoryAdd, productCategoryEdit, productCategoryDelete,
                 productManage, productAdd, productEdit, productDelete,
                 workshopManage, workshopAdd, workshopEdit, workshopDelete,
-                workstationManage, workstationAdd, workstationEdit, workstationDelete);
+                workstationManage, workstationAdd, workstationEdit, workstationDelete,
+                processManage, processAdd, processEdit, processDelete,
+                processRouteManage, processRouteAdd, processRouteEdit, processRouteDelete);
 
         Role userRole = createRoleIfNotExists("USER", "普通用户",
                 passwordChange, mesView);

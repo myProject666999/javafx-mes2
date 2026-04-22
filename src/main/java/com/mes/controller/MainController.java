@@ -82,7 +82,16 @@ public class MainController {
     private Button workstationMenuBtn;
 
     @FXML
+    private Button processMenuBtn;
+
+    @FXML
+    private Button processRouteMenuBtn;
+
+    @FXML
     private Label systemMenuLabel;
+
+    @FXML
+    private Label processMenuLabel;
 
     @FXML
     private Label masterDataMenuLabel;
@@ -122,6 +131,8 @@ public class MainController {
         boolean hasProductManagePerm = authService.hasPermission("product:manage");
         boolean hasWorkshopPerm = authService.hasPermission("workshop:manage");
         boolean hasWorkstationPerm = authService.hasPermission("workstation:manage");
+        boolean hasProcessPerm = authService.hasPermission("process:manage");
+        boolean hasProcessRoutePerm = authService.hasPermission("process_route:manage");
 
         userMenuBtn.setVisible(hasUserPerm);
         userMenuBtn.setManaged(hasUserPerm);
@@ -139,6 +150,10 @@ public class MainController {
         workshopMenuBtn.setManaged(hasWorkshopPerm);
         workstationMenuBtn.setVisible(hasWorkstationPerm);
         workstationMenuBtn.setManaged(hasWorkstationPerm);
+        processMenuBtn.setVisible(hasProcessPerm);
+        processMenuBtn.setManaged(hasProcessPerm);
+        processRouteMenuBtn.setVisible(hasProcessRoutePerm);
+        processRouteMenuBtn.setManaged(hasProcessRoutePerm);
 
         boolean hasSystemMenu = hasUserPerm || hasRolePerm || hasPermPerm;
         systemMenuLabel.setVisible(hasSystemMenu);
@@ -154,6 +169,10 @@ public class MainController {
         boolean hasWorkshopMenu = hasWorkshopPerm || hasWorkstationPerm;
         workshopMenuLabel.setVisible(hasWorkshopMenu);
         workshopMenuLabel.setManaged(hasWorkshopMenu);
+
+        boolean hasProcessMenu = hasProcessPerm || hasProcessRoutePerm;
+        processMenuLabel.setVisible(hasProcessMenu);
+        processMenuLabel.setManaged(hasProcessMenu);
     }
 
     private void updateDashboard() {
@@ -246,6 +265,18 @@ public class MainController {
     public void showWorkstation() {
         loadView("/fxml/workstation.fxml");
         setActiveButton(workstationMenuBtn);
+    }
+
+    @FXML
+    public void showProcess() {
+        loadView("/fxml/process.fxml");
+        setActiveButton(processMenuBtn);
+    }
+
+    @FXML
+    public void showProcessRoute() {
+        loadView("/fxml/process-route.fxml");
+        setActiveButton(processRouteMenuBtn);
     }
 
     @FXML
